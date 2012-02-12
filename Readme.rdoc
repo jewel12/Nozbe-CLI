@@ -1,0 +1,15 @@
+= Nozbe-CLI
+Nozbe command line interface
+
+== Usage
+First of all, Add your Nozbe API Key to config/config.yaml.
+
+=== Interaction mode
+Run Nozbe without option.
+
+In interaction mode:
+* l => Show next actions.
+* l [action id] => Show actions in project of given action id.
+* i => Show actions in Inbox.
+* d [action id] => Mark as done.
+* u [action name] => Update new action.

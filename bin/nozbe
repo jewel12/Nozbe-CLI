@@ -1,0 +1,28 @@
+#! /usr/bin/env ruby
+# coding:utf-8
+require 'optparse'
+require File.dirname( __FILE__ ) + '/../lib/nozbe.rb'
+
+mode = nil
+
+OptionParser.new do |opt|
+  opt.on('-l') { mode = :list }
+  opt.on('-i') { mode = nil }
+  opt.parse!(ARGV)
+end
+
+mode = :interaction if mode.nil?
+
+case mode
+  when :list
+  actor = NozbeWrapper::Actor.new
+  when :interaction
+  actor = NozbeWrapper::Interactor.new
+end
+
+case mode
+  when :list
+  actor.show_actions
+  when :interaction
+  actor.start_interaction
+end
